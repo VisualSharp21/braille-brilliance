@@ -44,7 +44,7 @@ function Nav() {
   const links = [
     { href: "#problema", label: "O Problema" },
     { href: "#solucao", label: "A Solução" },
-    { href: "#diferenciais", label: "Diferenciais" },
+    { href: "#produto", label: "O Produto" },
     { href: "#simulador", label: "Simulador" },
     { href: "#equipe", label: "Equipe" },
   ];
