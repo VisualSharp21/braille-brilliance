@@ -541,13 +541,12 @@ function CostComparison() {
 }
 
 // ---------------- Team ----------------
-type Founder = { name: string; role: string; icon: typeof Cpu };
+type Founder = { name: string; role: string; photo: string };
 function Team() {
   const founders: Founder[] = [
-    { name: "Marcelo Arbage", role: "Integração & Software", icon: Layers },
-    { name: "Theo Mello", role: "Hardware & Integração", icon: Cpu },
-    { name: "Thiago Araujo", role: "Modelagem 3D & Hardware", icon: Wrench },
-    { name: "Rafael Collares", role: "Software & Modelagem", icon: Code2 },
+    { name: "Theo Mello", role: "Hardware & Integração", photo: fotoTheo.url },
+    { name: "Thiago Araujo", role: "Modelagem 3D & Software", photo: fotoThiago.url },
+    { name: "Rafael Collares", role: "Hardware & Integração", photo: fotoRafael.url },
   ];
   return (
     <section id="equipe" className="py-28 bg-background">
@@ -555,25 +554,20 @@ function Team() {
         <div className="max-w-2xl">
           <p className="text-tactile text-sm font-semibold uppercase tracking-widest">Sobre a Jumpers</p>
           <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-navy-deep text-balance-tight">
-            Quatro engenheiros, uma missão: alfabetização em Braille para todos.
+            Engenheiros com uma missão: alfabetização em Braille para todos.
           </h2>
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {founders.map(({ name, role, icon: Icon }) => (
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {founders.map(({ name, role, photo }) => (
             <div key={name} className="group rounded-2xl border border-border bg-card p-6 hover:border-tactile transition-colors">
-              <div className="relative aspect-square rounded-xl bg-gradient-to-br from-navy to-navy-deep overflow-hidden flex items-center justify-center">
-                <div aria-hidden className="absolute inset-0 opacity-30" style={{
-                  backgroundImage: "radial-gradient(circle at 30% 30%, oklch(0.72 0.15 155 / 0.6), transparent 50%)"
-                }} />
-                <div className="relative text-white flex flex-col items-center gap-3">
-                  <div className="h-16 w-16 rounded-full bg-white/10 backdrop-blur flex items-center justify-center border border-white/20">
-                    <Icon className="h-7 w-7 text-tactile" />
-                  </div>
-                  <div className="font-display text-4xl font-semibold opacity-80">
-                    {name.split(" ").map(n => n[0]).slice(0, 2).join("")}
-                  </div>
-                </div>
+              <div className="relative aspect-square rounded-xl bg-gradient-to-br from-navy to-navy-deep overflow-hidden">
+                <img
+                  src={photo}
+                  alt={`Retrato de ${name}`}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div className="mt-5">
                 <div className="font-semibold text-navy-deep">{name}</div>
@@ -601,6 +595,47 @@ function Team() {
               <Download className="h-4 w-4" /> Baixar Relatório
             </a>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------------- Product showcase ----------------
+function Product() {
+  return (
+    <section id="produto" className="py-28 bg-background border-t border-border">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-tactile text-sm font-semibold uppercase tracking-widest">O Produto</p>
+          <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-navy-deep text-balance-tight">
+            Um dispositivo compacto, robusto e pronto para a sala de aula.
+          </h2>
+          <p className="mt-4 text-muted-foreground text-lg">
+            Gabinete impresso em 3D, componentes integrados e acabamento ergonômico — pensado para durar nas mãos das crianças.
+          </p>
+        </div>
+
+        <div className="mt-14 grid md:grid-cols-2 gap-6">
+          {[
+            { src: caixaFechada.url, title: "Gabinete finalizado", desc: "Formato compacto com célula Braille ampliada, alto-falante e botão principal." },
+            { src: caixaAberta.url, title: "Eletrônica interna", desc: "Micro servomotores acionando cada pino, integrados à placa de controle." },
+          ].map((it) => (
+            <figure key={it.title} className="group rounded-3xl overflow-hidden border border-border bg-card hover:shadow-xl transition-shadow">
+              <div className="aspect-[4/3] overflow-hidden bg-secondary/40">
+                <img
+                  src={it.src}
+                  alt={it.title}
+                  className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="p-6">
+                <div className="font-semibold text-navy-deep">{it.title}</div>
+                <p className="mt-1 text-sm text-muted-foreground">{it.desc}</p>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
