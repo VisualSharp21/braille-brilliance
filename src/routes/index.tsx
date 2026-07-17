@@ -95,14 +95,14 @@ function Hero() {
             Uma célula Braille eletrônica interativa e de baixo custo, projetada para transformar o aprendizado de crianças com deficiência visual — por apenas <strong className="text-white">R$ 497,00</strong>.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#simulador" className="inline-flex items-center gap-2 rounded-full bg-tactile text-navy-deep px-6 py-3 text-sm font-semibold hover:brightness-105 transition">
+            <a href="#vendas" className="inline-flex items-center gap-2 rounded-full bg-tactile text-navy-deep px-6 py-3 text-sm font-semibold shadow-xl shadow-tactile/30 hover:brightness-105 transition">
+              <ShoppingCart className="h-4 w-4" /> Comprar EcoTátil
+            </a>
+            <a href="#simulador" className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 text-white px-6 py-3 text-sm font-semibold hover:bg-white/15 transition">
               <Play className="h-4 w-4" /> Conheça o Simulador
             </a>
             <a href="#instalar" className="inline-flex items-center gap-2 rounded-full bg-white text-navy-deep px-6 py-3 text-sm font-semibold hover:bg-tactile-soft transition">
               <Download className="h-4 w-4" /> Instalar Software
-            </a>
-            <a href="#relatorio" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 text-white px-6 py-3 text-sm font-semibold hover:bg-white/10 transition">
-              <Download className="h-4 w-4" /> Baixar Relatório do Projeto
             </a>
           </div>
           <dl className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
