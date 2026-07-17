@@ -97,6 +97,9 @@ function Hero() {
             <a href="#simulador" className="inline-flex items-center gap-2 rounded-full bg-tactile text-navy-deep px-6 py-3 text-sm font-semibold hover:brightness-105 transition">
               <Play className="h-4 w-4" /> Conheça o Simulador
             </a>
+            <a href="#instalar" className="inline-flex items-center gap-2 rounded-full bg-white text-navy-deep px-6 py-3 text-sm font-semibold hover:bg-tactile-soft transition">
+              <Download className="h-4 w-4" /> Instalar Software
+            </a>
             <a href="#relatorio" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 text-white px-6 py-3 text-sm font-semibold hover:bg-white/10 transition">
               <Download className="h-4 w-4" /> Baixar Relatório do Projeto
             </a>
