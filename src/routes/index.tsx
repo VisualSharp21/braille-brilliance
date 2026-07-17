@@ -8,6 +8,11 @@ import {
 import {
   BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList,
 } from "recharts";
+import fotoTheo from "@/assets/fototheo.jpeg.asset.json";
+import fotoThiago from "@/assets/fotothiago.jpeg.asset.json";
+import fotoRafael from "@/assets/fotorafael.jpeg.asset.json";
+import caixaFechada from "@/assets/ecotatil-caixa-fechada.png.asset.json";
+import caixaAberta from "@/assets/ecotatil-caixa-aberta.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -39,7 +44,7 @@ function Nav() {
   const links = [
     { href: "#problema", label: "O Problema" },
     { href: "#solucao", label: "A Solução" },
-    { href: "#diferenciais", label: "Diferenciais" },
+    { href: "#produto", label: "O Produto" },
     { href: "#simulador", label: "Simulador" },
     { href: "#equipe", label: "Equipe" },
   ];
@@ -86,11 +91,14 @@ function Hero() {
             EcoTátil: a tecnologia que dá <span className="text-tactile">voz</span> e <span className="text-tactile">relevo</span> à alfabetização infantil.
           </h1>
           <p className="mt-6 text-lg text-white/75 max-w-xl">
-            Uma célula Braille eletrônica interativa e de baixo custo, projetada para transformar o aprendizado de crianças com deficiência visual — por apenas <strong className="text-white">R$ 407,00</strong>.
+            Uma célula Braille eletrônica interativa e de baixo custo, projetada para transformar o aprendizado de crianças com deficiência visual — por apenas <strong className="text-white">R$ 497,00</strong>.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#simulador" className="inline-flex items-center gap-2 rounded-full bg-tactile text-navy-deep px-6 py-3 text-sm font-semibold hover:brightness-105 transition">
               <Play className="h-4 w-4" /> Conheça o Simulador
+            </a>
+            <a href="#instalar" className="inline-flex items-center gap-2 rounded-full bg-white text-navy-deep px-6 py-3 text-sm font-semibold hover:bg-tactile-soft transition">
+              <Download className="h-4 w-4" /> Instalar Software
             </a>
             <a href="#relatorio" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 text-white px-6 py-3 text-sm font-semibold hover:bg-white/10 transition">
               <Download className="h-4 w-4" /> Baixar Relatório do Projeto
@@ -98,7 +106,7 @@ function Hero() {
           </div>
           <dl className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
             {[
-              { k: "R$ 407", v: "Custo unitário" },
+              { k: "R$ 497", v: "Custo unitário" },
               { k: "97%", v: "Mais barato que o mercado" },
               { k: "6 pinos", v: "Célula Braille ampliada" },
             ].map(s => (
@@ -489,7 +497,7 @@ function CostComparison() {
   const data = [
     { name: "Linha Braille Premium", value: 25000, fill: "oklch(0.58 0.22 27)" },
     { name: "Linha Braille Básica", value: 12000, fill: "oklch(0.65 0.15 40)" },
-    { name: "EcoTátil MVP", value: 407, fill: "oklch(0.72 0.15 155)" },
+    { name: "EcoTátil MVP", value: 497, fill: "oklch(0.72 0.15 155)" },
   ];
   return (
     <section className="py-28 bg-secondary/50 border-y border-border">
@@ -521,7 +529,7 @@ function CostComparison() {
           <div className="lg:col-span-2 space-y-4">
             <div className="rounded-2xl bg-navy-deep text-white p-6">
               <div className="text-xs uppercase tracking-widest text-tactile">EcoTátil MVP</div>
-              <div className="mt-2 font-display text-4xl font-semibold">R$ 407,00</div>
+              <div className="mt-2 font-display text-4xl font-semibold">R$ 497,00</div>
               <ul className="mt-4 space-y-2 text-sm text-white/80">
                 <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-tactile shrink-0 mt-0.5" /> Altamente escalável</li>
                 <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-tactile shrink-0 mt-0.5" /> Hardware e software abertos</li>
@@ -541,13 +549,12 @@ function CostComparison() {
 }
 
 // ---------------- Team ----------------
-type Founder = { name: string; role: string; icon: typeof Cpu };
+type Founder = { name: string; role: string; photo: string };
 function Team() {
   const founders: Founder[] = [
-    { name: "Marcelo Arbage", role: "Integração & Software", icon: Layers },
-    { name: "Theo Mello", role: "Hardware & Integração", icon: Cpu },
-    { name: "Thiago Araujo", role: "Modelagem 3D & Hardware", icon: Wrench },
-    { name: "Rafael Collares", role: "Software & Modelagem", icon: Code2 },
+    { name: "Theo Mello", role: "Hardware & Integração", photo: fotoTheo.url },
+    { name: "Thiago Araujo", role: "Modelagem 3D & Software", photo: fotoThiago.url },
+    { name: "Rafael Collares", role: "Hardware & Integração", photo: fotoRafael.url },
   ];
   return (
     <section id="equipe" className="py-28 bg-background">
@@ -555,25 +562,20 @@ function Team() {
         <div className="max-w-2xl">
           <p className="text-tactile text-sm font-semibold uppercase tracking-widest">Sobre a Jumpers</p>
           <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-navy-deep text-balance-tight">
-            Quatro engenheiros, uma missão: alfabetização em Braille para todos.
+            Engenheiros com uma missão: alfabetização em Braille para todos.
           </h2>
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {founders.map(({ name, role, icon: Icon }) => (
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {founders.map(({ name, role, photo }) => (
             <div key={name} className="group rounded-2xl border border-border bg-card p-6 hover:border-tactile transition-colors">
-              <div className="relative aspect-square rounded-xl bg-gradient-to-br from-navy to-navy-deep overflow-hidden flex items-center justify-center">
-                <div aria-hidden className="absolute inset-0 opacity-30" style={{
-                  backgroundImage: "radial-gradient(circle at 30% 30%, oklch(0.72 0.15 155 / 0.6), transparent 50%)"
-                }} />
-                <div className="relative text-white flex flex-col items-center gap-3">
-                  <div className="h-16 w-16 rounded-full bg-white/10 backdrop-blur flex items-center justify-center border border-white/20">
-                    <Icon className="h-7 w-7 text-tactile" />
-                  </div>
-                  <div className="font-display text-4xl font-semibold opacity-80">
-                    {name.split(" ").map(n => n[0]).slice(0, 2).join("")}
-                  </div>
-                </div>
+              <div className="relative aspect-square rounded-xl bg-gradient-to-br from-navy to-navy-deep overflow-hidden">
+                <img
+                  src={photo}
+                  alt={`Retrato de ${name}`}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div className="mt-5">
                 <div className="font-semibold text-navy-deep">{name}</div>
@@ -599,6 +601,67 @@ function Team() {
             </a>
             <a href="#top" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 text-white px-6 py-3 text-sm font-semibold hover:bg-white/10 transition">
               <Download className="h-4 w-4" /> Baixar Relatório
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------------- Product showcase ----------------
+function Product() {
+  return (
+    <section id="produto" className="py-28 bg-background border-t border-border">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-tactile text-sm font-semibold uppercase tracking-widest">O Produto</p>
+          <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-navy-deep text-balance-tight">
+            Um dispositivo compacto, robusto e pronto para a sala de aula.
+          </h2>
+          <p className="mt-4 text-muted-foreground text-lg">
+            Gabinete impresso em 3D, componentes integrados e acabamento ergonômico — pensado para durar nas mãos das crianças.
+          </p>
+        </div>
+
+        <div className="mt-14 grid md:grid-cols-2 gap-6">
+          {[
+            { src: caixaFechada.url, title: "Gabinete finalizado", desc: "Formato compacto com célula Braille ampliada, alto-falante e botão principal." },
+            { src: caixaAberta.url, title: "Eletrônica interna", desc: "Micro servomotores acionando cada pino, integrados à placa de controle." },
+          ].map((it) => (
+            <figure key={it.title} className="group rounded-3xl overflow-hidden border border-border bg-card hover:shadow-xl transition-shadow">
+              <div className="aspect-[4/3] overflow-hidden bg-secondary/40">
+                <img
+                  src={it.src}
+                  alt={it.title}
+                  className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="p-6">
+                <div className="font-semibold text-navy-deep">{it.title}</div>
+                <p className="mt-1 text-sm text-muted-foreground">{it.desc}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div id="instalar" className="mt-14 rounded-3xl border border-border bg-card p-8 md:p-12 grid md:grid-cols-3 gap-8 items-center">
+          <div className="md:col-span-2">
+            <p className="text-tactile text-xs font-semibold uppercase tracking-widest">Software EcoTátil</p>
+            <h3 className="mt-2 font-display text-2xl md:text-3xl font-semibold text-navy-deep">
+              Instale o firmware e comece a alfabetizar hoje.
+            </h3>
+            <p className="mt-3 text-muted-foreground">
+              Baixe o software oficial do EcoTátil — código aberto, atualizações contínuas e compatível com Windows, macOS e Linux.
+            </p>
+          </div>
+          <div className="flex md:justify-end">
+            <a
+              href="#instalar"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-deep text-white px-6 py-3 text-sm font-semibold hover:bg-navy transition"
+            >
+              <Download className="h-4 w-4" /> Instalar Software
             </a>
           </div>
         </div>
@@ -640,6 +703,7 @@ function LandingPage() {
       <Simulator />
       <Scientific />
       <CostComparison />
+      <Product />
       <Team />
       <Footer />
     </main>
