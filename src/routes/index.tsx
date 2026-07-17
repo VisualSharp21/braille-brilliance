@@ -830,6 +830,7 @@ function LandingPage() {
       <CostComparison />
       <Product />
       <Team />
+      <Sales />
       <Footer />
     </main>
   );
