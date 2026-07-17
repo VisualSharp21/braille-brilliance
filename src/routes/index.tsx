@@ -69,8 +69,8 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <a href="#simulador" className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-white text-navy-deep px-4 py-2 text-sm font-medium hover:bg-tactile-soft transition-colors">
-          Testar agora <ArrowRight className="h-4 w-4" />
+        <a href="#vendas" className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-tactile text-navy-deep px-4 py-2 text-sm font-semibold shadow-lg shadow-tactile/30 hover:brightness-105 transition">
+          <ShoppingCart className="h-4 w-4" /> Comprar EcoTátil
         </a>
       </div>
     </header>
