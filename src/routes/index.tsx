@@ -91,7 +91,7 @@ function Hero() {
             EcoTátil: a tecnologia que dá <span className="text-tactile">voz</span> e <span className="text-tactile">relevo</span> à alfabetização infantil.
           </h1>
           <p className="mt-6 text-lg text-white/75 max-w-xl">
-            Uma célula Braille eletrônica interativa e de baixo custo, projetada para transformar o aprendizado de crianças com deficiência visual — por apenas <strong className="text-white">R$ 407,00</strong>.
+            Uma célula Braille eletrônica interativa e de baixo custo, projetada para transformar o aprendizado de crianças com deficiência visual — por apenas <strong className="text-white">R$ 497,00</strong>.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#simulador" className="inline-flex items-center gap-2 rounded-full bg-tactile text-navy-deep px-6 py-3 text-sm font-semibold hover:brightness-105 transition">
@@ -103,7 +103,7 @@ function Hero() {
           </div>
           <dl className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
             {[
-              { k: "R$ 407", v: "Custo unitário" },
+              { k: "R$ 497", v: "Custo unitário" },
               { k: "97%", v: "Mais barato que o mercado" },
               { k: "6 pinos", v: "Célula Braille ampliada" },
             ].map(s => (
@@ -494,7 +494,7 @@ function CostComparison() {
   const data = [
     { name: "Linha Braille Premium", value: 25000, fill: "oklch(0.58 0.22 27)" },
     { name: "Linha Braille Básica", value: 12000, fill: "oklch(0.65 0.15 40)" },
-    { name: "EcoTátil MVP", value: 407, fill: "oklch(0.72 0.15 155)" },
+    { name: "EcoTátil MVP", value: 497, fill: "oklch(0.72 0.15 155)" },
   ];
   return (
     <section className="py-28 bg-secondary/50 border-y border-border">
@@ -526,7 +526,7 @@ function CostComparison() {
           <div className="lg:col-span-2 space-y-4">
             <div className="rounded-2xl bg-navy-deep text-white p-6">
               <div className="text-xs uppercase tracking-widest text-tactile">EcoTátil MVP</div>
-              <div className="mt-2 font-display text-4xl font-semibold">R$ 407,00</div>
+              <div className="mt-2 font-display text-4xl font-semibold">R$ 497,00</div>
               <ul className="mt-4 space-y-2 text-sm text-white/80">
                 <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-tactile shrink-0 mt-0.5" /> Altamente escalável</li>
                 <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-tactile shrink-0 mt-0.5" /> Hardware e software abertos</li>
