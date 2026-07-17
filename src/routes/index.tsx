@@ -645,6 +645,26 @@ function Product() {
             </figure>
           ))}
         </div>
+
+        <div id="instalar" className="mt-14 rounded-3xl border border-border bg-card p-8 md:p-12 grid md:grid-cols-3 gap-8 items-center">
+          <div className="md:col-span-2">
+            <p className="text-tactile text-xs font-semibold uppercase tracking-widest">Software EcoTátil</p>
+            <h3 className="mt-2 font-display text-2xl md:text-3xl font-semibold text-navy-deep">
+              Instale o firmware e comece a alfabetizar hoje.
+            </h3>
+            <p className="mt-3 text-muted-foreground">
+              Baixe o software oficial do EcoTátil — código aberto, atualizações contínuas e compatível com Windows, macOS e Linux.
+            </p>
+          </div>
+          <div className="flex md:justify-end">
+            <a
+              href="#instalar"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-deep text-white px-6 py-3 text-sm font-semibold hover:bg-navy transition"
+            >
+              <Download className="h-4 w-4" /> Instalar Software
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
