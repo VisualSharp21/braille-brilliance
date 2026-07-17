@@ -4,6 +4,7 @@ import {
   Sparkles, Volume2, Cog, Hand, Box, ArrowRight, Download,
   AlertTriangle, School, Coins, BookOpen, Brain, CheckCircle2,
   Mail, MapPin, Phone, Cpu, Wrench, Code2, Layers, X, Play,
+  ShoppingCart, User,
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList,
