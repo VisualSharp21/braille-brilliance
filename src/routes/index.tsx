@@ -671,6 +671,130 @@ function Product() {
   );
 }
 
+// ---------------- Sales ----------------
+function Sales() {
+  const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim()) return;
+    setSubmitted(true);
+  };
+
+  return (
+    <section id="vendas" className="py-28 bg-secondary/40 border-t border-border">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-tactile text-sm font-semibold uppercase tracking-widest">Área de Vendas</p>
+          <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-navy-deep text-balance-tight">
+            Garanta o futuro da inclusão. Adquira o EcoTátil.
+          </h2>
+        </div>
+
+        <div className="mt-14 grid lg:grid-cols-2 gap-10 items-center">
+          {/* Product image */}
+          <div className="relative">
+            <div aria-hidden className="absolute -inset-6 bg-tactile/20 blur-3xl rounded-full" />
+            <div className="relative rounded-3xl overflow-hidden border border-border bg-card shadow-2xl">
+              <img
+                src={caixaFechada.url}
+                alt="EcoTátil — dispositivo Braille eletrônico"
+                className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          {/* Offer + form */}
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-tactile-soft/60 text-navy-deep px-3 py-1 text-xs font-semibold uppercase tracking-widest">
+              <Sparkles className="h-3.5 w-3.5" /> Pré-venda MVP
+            </div>
+            <div className="mt-4 flex items-baseline gap-3">
+              <span className="font-display text-5xl md:text-6xl font-semibold text-navy-deep">R$ 497,00</span>
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">
+              * Valor do MVP de custo reduzido, sujeito a ajustes conforme escala de produção.
+            </p>
+
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              Transforme a aprendizagem das crianças com deficiência visual com tecnologia acessível e de ponta.
+              O kit inclui o dispositivo, cabo de alimentação e acesso aos manuais de uso.
+            </p>
+
+            <ul className="mt-6 grid sm:grid-cols-2 gap-2 text-sm text-navy-deep">
+              {["Dispositivo EcoTátil", "Cabo de alimentação", "Manuais de uso", "Suporte da equipe"].map(f => (
+                <li key={f} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-tactile" /> {f}
+                </li>
+              ))}
+            </ul>
+
+            <form onSubmit={handleSubmit} className="mt-8 rounded-2xl bg-card border border-border p-6 shadow-lg">
+              {submitted ? (
+                <div className="flex items-start gap-3 py-2">
+                  <CheckCircle2 className="h-6 w-6 text-tactile shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold text-navy-deep">Encomenda registrada!</div>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Obrigado, {name.split(" ")[0]}. Entraremos em contato em {email} com os próximos passos.
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="text-sm font-semibold text-navy-deep">Finalizar encomenda • Lista de espera</div>
+                  <div className="mt-4 space-y-3">
+                    <label className="block">
+                      <span className="sr-only">Nome</span>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <input
+                          type="text"
+                          required
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Seu nome completo"
+                          className="w-full rounded-xl border border-border bg-background pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-tactile focus:border-tactile"
+                        />
+                      </div>
+                    </label>
+                    <label className="block">
+                      <span className="sr-only">E-mail</span>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <input
+                          type="email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="seu@email.com"
+                          className="w-full rounded-xl border border-border bg-background pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-tactile focus:border-tactile"
+                        />
+                      </div>
+                    </label>
+                    <button
+                      type="submit"
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-navy-deep text-white px-6 py-3 text-sm font-semibold hover:bg-navy transition"
+                    >
+                      <ShoppingCart className="h-4 w-4" /> Garantir o Meu EcoTátil
+                    </button>
+                    <p className="text-[11px] text-muted-foreground text-center">
+                      Ao enviar, você concorda em ser contatado pela equipe Jumpers sobre a sua encomenda.
+                    </p>
+                  </div>
+                </>
+              )}
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ---------------- Footer ----------------
 function Footer() {
   return (
