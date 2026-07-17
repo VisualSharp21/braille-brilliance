@@ -8,6 +8,11 @@ import {
 import {
   BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList,
 } from "recharts";
+import fotoTheo from "@/assets/fototheo.jpeg.asset.json";
+import fotoThiago from "@/assets/fotothiago.jpeg.asset.json";
+import fotoRafael from "@/assets/fotorafael.jpeg.asset.json";
+import caixaFechada from "@/assets/ecotatil-caixa-fechada.png.asset.json";
+import caixaAberta from "@/assets/ecotatil-caixa-aberta.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
