@@ -683,6 +683,7 @@ function LandingPage() {
       <Simulator />
       <Scientific />
       <CostComparison />
+      <Product />
       <Team />
       <Footer />
     </main>
