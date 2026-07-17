@@ -48,6 +48,7 @@ function Nav() {
     { href: "#produto", label: "O Produto" },
     { href: "#simulador", label: "Simulador" },
     { href: "#equipe", label: "Equipe" },
+    { href: "#vendas", label: "Vendas" },
   ];
   return (
     <header className="absolute top-0 left-0 right-0 z-40">
